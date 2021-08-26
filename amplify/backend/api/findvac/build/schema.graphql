@@ -1,0 +1,213 @@
+type VaccinationCenter {
+  id: ID!
+  tpa: String!
+  hospitalId: String!
+  hospitalName: String!
+  state: String!
+  district: String
+  address: String
+  pincode: String
+  ownershipType: String
+  mdCeoName: String
+  contactNo: String
+  mdCeoEmail: String
+  latitude: String
+  longitude: String
+  estimatedVaccinePerDay: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelVaccinationCenterConnection {
+  items: [VaccinationCenter]
+  nextToken: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+input ModelVaccinationCenterFilterInput {
+  id: ModelIDInput
+  tpa: ModelStringInput
+  hospitalId: ModelStringInput
+  hospitalName: ModelStringInput
+  state: ModelStringInput
+  district: ModelStringInput
+  address: ModelStringInput
+  pincode: ModelStringInput
+  ownershipType: ModelStringInput
+  mdCeoName: ModelStringInput
+  contactNo: ModelStringInput
+  mdCeoEmail: ModelStringInput
+  latitude: ModelStringInput
+  longitude: ModelStringInput
+  estimatedVaccinePerDay: ModelStringInput
+  and: [ModelVaccinationCenterFilterInput]
+  or: [ModelVaccinationCenterFilterInput]
+  not: ModelVaccinationCenterFilterInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+type Query {
+  getVaccinationCenter(id: ID!): VaccinationCenter
+  listVaccinationCenters(filter: ModelVaccinationCenterFilterInput, limit: Int, nextToken: String): ModelVaccinationCenterConnection
+}
+
+input CreateVaccinationCenterInput {
+  id: ID
+  tpa: String!
+  hospitalId: String!
+  hospitalName: String!
+  state: String!
+  district: String
+  address: String
+  pincode: String
+  ownershipType: String
+  mdCeoName: String
+  contactNo: String
+  mdCeoEmail: String
+  latitude: String
+  longitude: String
+  estimatedVaccinePerDay: String
+}
+
+input UpdateVaccinationCenterInput {
+  id: ID!
+  tpa: String
+  hospitalId: String
+  hospitalName: String
+  state: String
+  district: String
+  address: String
+  pincode: String
+  ownershipType: String
+  mdCeoName: String
+  contactNo: String
+  mdCeoEmail: String
+  latitude: String
+  longitude: String
+  estimatedVaccinePerDay: String
+}
+
+input DeleteVaccinationCenterInput {
+  id: ID
+}
+
+type Mutation {
+  createVaccinationCenter(input: CreateVaccinationCenterInput!, condition: ModelVaccinationCenterConditionInput): VaccinationCenter
+  updateVaccinationCenter(input: UpdateVaccinationCenterInput!, condition: ModelVaccinationCenterConditionInput): VaccinationCenter
+  deleteVaccinationCenter(input: DeleteVaccinationCenterInput!, condition: ModelVaccinationCenterConditionInput): VaccinationCenter
+}
+
+input ModelVaccinationCenterConditionInput {
+  tpa: ModelStringInput
+  hospitalId: ModelStringInput
+  hospitalName: ModelStringInput
+  state: ModelStringInput
+  district: ModelStringInput
+  address: ModelStringInput
+  pincode: ModelStringInput
+  ownershipType: ModelStringInput
+  mdCeoName: ModelStringInput
+  contactNo: ModelStringInput
+  mdCeoEmail: ModelStringInput
+  latitude: ModelStringInput
+  longitude: ModelStringInput
+  estimatedVaccinePerDay: ModelStringInput
+  and: [ModelVaccinationCenterConditionInput]
+  or: [ModelVaccinationCenterConditionInput]
+  not: ModelVaccinationCenterConditionInput
+}
+
+type Subscription {
+  onCreateVaccinationCenter: VaccinationCenter @aws_subscribe(mutations: ["createVaccinationCenter"])
+  onUpdateVaccinationCenter: VaccinationCenter @aws_subscribe(mutations: ["updateVaccinationCenter"])
+  onDeleteVaccinationCenter: VaccinationCenter @aws_subscribe(mutations: ["deleteVaccinationCenter"])
+}
