@@ -1,0 +1,82 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-findvac-dev-220301-authRole",
+			"UnauthRoleArn": "arn:aws:iam::232336619334:role/amplify-findvac-dev-220301-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::232336619334:role/amplify-findvac-dev-220301-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "amplify-findvac-dev-220301-deployment",
+			"UnauthRoleName": "amplify-findvac-dev-220301-unauthRole",
+			"StackName": "amplify-findvac-dev-220301",
+			"StackId": "arn:aws:cloudformation:us-east-1:232336619334:stack/amplify-findvac-dev-220301/9f1afb20-8350-11eb-889f-0eecabf51e5d",
+			"AmplifyAppId": "d3cfone7pxoknh"
+		}
+	},
+	"auth": {
+		"findvac6a3fbb69": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-findvac-dev-220301-deployment/amplify-cfn-templates/auth/findvac6a3fbb69-cloudformation-template.yml",
+				"logicalId": "authfindvac6a3fbb69"
+			},
+			"lastPushTimeStamp": "2021-03-12T17:59:10.357Z",
+			"output": {
+				"AppClientSecret": "1qlh0rr3p0kllg6r3rd07sg6m3haag93jn2n17g7qo783bgpfdck",
+				"UserPoolId": "us-east-1_hw7RbHhPK",
+				"AppClientIDWeb": "7n8jsputummmvsede76mtsd1nt",
+				"AppClientID": "5ktdsomdaqm88mtqmr8vuik8oq",
+				"IdentityPoolId": "us-east-1:e00ab7e7-51dd-4e27-bb2c-a61ea2fc0855",
+				"IdentityPoolName": "findvac6a3fbb69_identitypool_6a3fbb69__dev",
+				"UserPoolName": "findvac6a3fbb69_userpool_6a3fbb69"
+			},
+			"lastPushDirHash": "OKXr3ePpq/CR8Sn4NY16V3URHS0="
+		}
+	},
+	"api": {
+		"findvac": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"defaultAuthentication": {
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"apiKeyExpirationDays": 200,
+							"description": "AKIATMGCXO5DNHXM54AV"
+						}
+					},
+					"additionalAuthenticationProviders": []
+				},
+				"GraphQLAPIIdOutput": "6rvjgn7e5reg7e6dzjn4ji5nxq",
+				"GraphQLAPIEndpointOutput": "https://cvq5daqv6fe7lmv3xw76hqyr4e.appsync-api.us-east-1.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-xufk5ahsznhqvjgj326vyrixd4"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-findvac-dev-220301-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apifindvac"
+			},
+			"lastPushTimeStamp": "2021-03-12T17:59:11.603Z",
+			"lastPushDirHash": "niW41MJGmP+7btXSKhxq/E/hXiI="
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-findvac-dev-220301-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2021-03-12T17:59:11.603Z",
+			"output": {
+				"S3BucketSecureURL": "https://findvac-20210312232413-hostingbucket-dev.s3.amazonaws.com",
+				"WebsiteURL": "http://findvac-20210312232413-hostingbucket-dev.s3-website-us-east-1.amazonaws.com",
+				"Region": "us-east-1",
+				"HostingBucketName": "findvac-20210312232413-hostingbucket-dev"
+			},
+			"lastPushDirHash": "w6zEpnBfZr7W71g5OdtYQWBUr6Y="
+		}
+	}
+}

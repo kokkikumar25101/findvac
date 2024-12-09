@@ -1,0 +1,17 @@
+type VaccinationCenter @model @auth(rules: [{ allow: public, operations: [read]}]) {
+id: ID!
+tpa: String!
+hospitalId: String!
+hospitalName: String!
+state: String!
+district: String
+address: String
+pincode: String
+ownershipType: String
+mdCeoName: String
+contactNo: String
+mdCeoEmail: String
+latitude: String
+longitude: String
+estimatedVaccinePerDay: String
+}
